@@ -16,39 +16,42 @@ namespace JSTD2E_HFT_2021221.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Car>(entity =>
-            //{
-            //    entity
-            //    .HasOne(car => car.Brand)
-            //    .WithMany(brand => brand.Cars)
-            //    .HasForeignKey(car => car.BrandId)
-            //    .OnDelete(DeleteBehavior.Restrict);
-            //});
-
             modelBuilder.Entity<Game>(entity =>
             {
                 entity
-                .HasOne(game => game.DevTeam);
-                //.WithMany()
-                //.OnDelete(DeleteBehavior.Restrict);
+                .HasOne(game => game.DevTeam)
+                .WithMany(devTeam => devTeam.Games)
+                .OnDelete(DeleteBehavior.Restrict);
             });
 
-            Game game1 = new Game() { DevTeam = "Riot Games", GameName = "League of Legends", Price = 0, Type = "Moba" };
-            Game game2 = new Game() { DevTeam = "Blizzard", GameName = "World of Warcraft", Price = 2000, Type = "RPG" };
-            Game game3 = new Game() { DevTeam = "Blizzard", GameName = "Starcraft", Price = 0, Type = "Strategy" };
-            Game game4 = new Game() { DevTeam = "Call of Duty: Black Ops", GameName = "Activison", Price = 12000, Type = "FPS" };
-            Game game5 = new Game() { DevTeam = "Call of Duty: Modern Warfare", GameName = "Activison", Price = 9000, Type = "FPS" };
-            Game game6 = new Game() { DevTeam = "Call of Duty: Ghosts", GameName = "Activison", Price = 15000, Type = "FPS" };
-            Game game7 = new Game() { DevTeam = "Ubisoft", GameName = "Far Cry", Price = 5000, Type = "FPS" };
-            Game game8 = new Game() { DevTeam = "Ubisoft", GameName = "Watchdogs", Price = 8000, Type = "TPS" };
-            Game game9 = new Game() { DevTeam = "Ubisoft", GameName = "Assassin's Creed: Brotherhood", Price = 4000, Type = "TPS" };
-            Game game10 = new Game() { DevTeam = "CD Project", GameName = "The Witcher 3: Wild Hunt", Price = 20000, Type = "TPS" };
+            modelBuilder.Entity<DeveloperTeam>(entity =>
+            {
+                entity
+                .HasMany(devteam => devteam.Games);
+            });
 
-            DeveloperTeam devteam1 = new DeveloperTeam() { DevTeam = "Riot Games", DateofFoundation = 206, HQ = "Los Angeles" };
-            DeveloperTeam devteam2 = new DeveloperTeam() { DevTeam = "Activison", DateofFoundation = 1979, HQ = "Sunnyvale" };
-            DeveloperTeam devteam3 = new DeveloperTeam() { DevTeam = "Blizzard", DateofFoundation = 1991, HQ = "Irvine" };
-            DeveloperTeam devteam4 = new DeveloperTeam() { DevTeam = "CD Project", DateofFoundation = 1994, HQ = "Warsaw" };
-            DeveloperTeam devteam5 = new DeveloperTeam() { DevTeam = "Ubisoft", DateofFoundation = 1986, HQ = "Montreuil" };
+            modelBuilder.Entity<Buyer>(entity =>
+            {
+                entity
+                .HasOne(buyer => buyer.GameName);
+            });
+
+            DeveloperTeam RiotGames = new DeveloperTeam() { DevTeam = "Riot Games", DateofFoundation = 206, HQ = "Los Angeles" };
+            DeveloperTeam Activison = new DeveloperTeam() { DevTeam = "Activison", DateofFoundation = 1979, HQ = "Sunnyvale" };
+            DeveloperTeam Blizzard = new DeveloperTeam() { DevTeam = "Blizzard", DateofFoundation = 1991, HQ = "Irvine" };
+            DeveloperTeam CDProject = new DeveloperTeam() { DevTeam = "CD Project", DateofFoundation = 1994, HQ = "Warsaw" };
+            DeveloperTeam Ubisoft = new DeveloperTeam() { DevTeam = "Ubisoft", DateofFoundation = 1986, HQ = "Montreuil" };
+
+            Game game0 = new Game() { GameName = "League of Legends", DevTeamName = RiotGames.DevTeam, Price = 0, Type = "Moba" };
+            Game game1 = new Game() { GameName = "World of Warcraft", DevTeamName = Blizzard.DevTeam, Price = 2000, Type = "RPG" };
+            Game game2 = new Game() { GameName = "Starcraft", DevTeamName = Blizzard.DevTeam, Price = 0, Type = "Strategy" };
+            Game game3 = new Game() { GameName = "Call of Duty: Black Ops", DevTeamName = Activison.DevTeam, Price = 12000, Type = "FPS" };
+            Game game4 = new Game() { GameName = "Call of Duty: Modern Warfare", DevTeamName = Activison.DevTeam, Price = 9000, Type = "FPS" };
+            Game game5 = new Game() { GameName = "Call of Duty: Ghosts", DevTeamName = Activison.DevTeam, Price = 15000, Type = "FPS" };
+            Game game6 = new Game() { GameName = "Far Cry", DevTeamName = Ubisoft.DevTeam, Price = 5000, Type = "FPS" };
+            Game game7 = new Game() { GameName = "Watchdogs", DevTeamName = Ubisoft.DevTeam, Price = 8000, Type = "TPS" };
+            Game game8 = new Game() { GameName = "Assassin's Creed: Brotherhood", DevTeamName = Ubisoft.DevTeam, Price = 4000, Type = "TPS" };
+            Game game9 = new Game() { GameName = "The Witcher 3: Wild Hunt", DevTeamName = CDProject.DevTeam, Price = 20000, Type = "TPS" };
 
             Buyer buyer1 = new Buyer() { GameName = "League of Legends", Age = 23, DateofPurchase = 2010, Name = "Ryan Smith" };
             Buyer buyer2 = new Buyer() { GameName = "World of Warcraft", Age = 70, DateofPurchase = 2007, Name = "Ben Dover" };
