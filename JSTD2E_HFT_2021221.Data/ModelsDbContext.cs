@@ -62,8 +62,9 @@ namespace JSTD2E_HFT_2021221.Data
             Buyer buyer7 = new Buyer() { GameName = "Far Cry", Age = 18, DateofPurchase = 2014, Name = "Hugh Jass" };
             Buyer buyer8 = new Buyer() { GameName = "Starcraft", Age = 27, DateofPurchase = 2008, Name = "Roxanne Beck" };
 
-            //modelBuilder.Entity<Brand>().HasData(bmw, citroen, audi);
-            //modelBuilder.Entity<Car>().HasData(bmw1, bmw2, citroen1, citroen2, audi1, audi2);
+            modelBuilder.Entity<DeveloperTeam>().HasData(RiotGames, Activison, Blizzard, CDProject, Ubisoft);
+            modelBuilder.Entity<Game>().HasData(game0, game1, game2, game3, game4, game5, game6, game7, game8, game9);
+            modelBuilder.Entity<Buyer>().HasData(buyer1, buyer2, buyer3, buyer4, buyer5, buyer6, buyer7, buyer8);
         }
     }
 }

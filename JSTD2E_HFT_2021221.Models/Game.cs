@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JSTD2E_HFT_2021221.Models
+{
+    public class Game
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string GameName { get; set; }
+        
+        [NotMapped]
+        public virtual DeveloperTeam DevTeam { get; set; }
+
+        [ForeignKey(nameof(DeveloperTeam))]
+        public string DevTeamName { get; set; }
+
+        public int Price { get; set; }
+
+        public string Type { get; set; }
+    }
+}
