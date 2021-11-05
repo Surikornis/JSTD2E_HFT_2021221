@@ -5,15 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="GameStore.ldf" />
     <None Remove="GameStore.mdf" />
+    <None Remove="GameStore_log.ldf" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="GameStore.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="GameStore.ldf">
+    <Content Include="GameStore_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
