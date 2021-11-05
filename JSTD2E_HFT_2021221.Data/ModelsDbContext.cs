@@ -12,7 +12,7 @@ namespace JSTD2E_HFT_2021221.Data
 
         public ModelsDbContext()
         {
-            this.Database.EnsureCreated();
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -63,6 +63,11 @@ namespace JSTD2E_HFT_2021221.Data
             modelBuilder.Entity<Game>().HasData(game0, game1, game2, game3, game4, game5, game6, game7, game8, game9);
             modelBuilder.Entity<Buyer>().HasData(buyer1, buyer2, buyer3, buyer4, buyer5, buyer6, buyer7, buyer8);
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\FoodReciepts.mdf;Integrated Security=True";
+            builder.UseLazyLoadingProxies().UseSqlServer(conn);
+        }
     }
 }
-
