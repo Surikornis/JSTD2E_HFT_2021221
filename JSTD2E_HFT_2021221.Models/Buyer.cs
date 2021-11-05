@@ -10,8 +10,6 @@ namespace JSTD2E_HFT_2021221.Models
 {
     public class Buyer
     {
-        public string GameName { get; set; }
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string Name { get; set; }
@@ -19,5 +17,13 @@ namespace JSTD2E_HFT_2021221.Models
         public int Age { get; set; }
 
         public int DateofPurchase { get; set; }
+
+        [ForeignKey(nameof(Game))]
+        public string GameName { get; set; }
+
+        public virtual List<Game> Games { get; set; }
+
+        [NotMapped]
+        public virtual Game Game { get; set; }
     }
 }

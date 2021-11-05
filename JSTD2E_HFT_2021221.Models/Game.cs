@@ -10,15 +10,18 @@ namespace JSTD2E_HFT_2021221.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string GameName { get; set; }
-        
-        [NotMapped]
-        public virtual DeveloperTeam DevTeam { get; set; }
-
-        [ForeignKey(nameof(DeveloperTeam))]
-        public string DevTeamName { get; set; }
 
         public int Price { get; set; }
 
         public string Type { get; set; }
+
+        [Required]
+        public Buyer Buyer { get; set; }
+
+        [ForeignKey(nameof(DevTeam))]
+        public string DevTeamName { get; set; }
+
+        [NotMapped]
+        public virtual DeveloperTeam DevTeam { get; set; }
     }
 }

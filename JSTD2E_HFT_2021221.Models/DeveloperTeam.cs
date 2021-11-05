@@ -20,10 +20,5 @@ namespace JSTD2E_HFT_2021221.Models
 
         [NotMapped]
         public virtual ICollection<Game> Games { get; set; }
-
-        public DeveloperTeam()
-        {
-            Games = new HashSet<Game>();
-        }
     }
 }

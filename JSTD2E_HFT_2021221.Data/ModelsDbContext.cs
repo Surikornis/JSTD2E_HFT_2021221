@@ -20,20 +20,17 @@ namespace JSTD2E_HFT_2021221.Data
             {
                 entity
                 .HasOne(game => game.DevTeam)
-                .WithMany(devTeam => devTeam.Games)
+                .WithMany(devteam => devteam.Games)
+                .HasForeignKey(game => game.DevTeamName)
                 .OnDelete(DeleteBehavior.Restrict);
-            });
-
-            modelBuilder.Entity<DeveloperTeam>(entity =>
-            {
-                entity
-                .HasMany(devteam => devteam.Games);
             });
 
             modelBuilder.Entity<Buyer>(entity =>
             {
                 entity
-                .HasOne(buyer => buyer.GameName);
+                .HasMany(buyer => buyer.Games)
+                .WithOne(game => game.Buyer)
+                .OnDelete(DeleteBehavior.Restrict);
             });
 
             DeveloperTeam RiotGames = new DeveloperTeam() { DevTeam = "Riot Games", DateofFoundation = 206, HQ = "Los Angeles" };
