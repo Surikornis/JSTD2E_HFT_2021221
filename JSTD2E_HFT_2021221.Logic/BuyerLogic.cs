@@ -2,7 +2,7 @@
 
 namespace JSTD2E_HFT_2021221.Logic
 {
-    public class Class1
+    public class BuyerLogic
     {
     }
 }
