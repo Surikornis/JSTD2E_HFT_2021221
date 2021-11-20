@@ -1,4 +1,5 @@
 ﻿using JSTD2E_HFT_2021221.Models;
+using JSTD2E_HFT_2021221.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,29 +10,41 @@ namespace JSTD2E_HFT_2021221.Logic
 {
     class GameLogic : IGameLogic
     {
+        IGameRepository gameRepo;
+        public GameLogic(IGameRepository gameRepo)
+        {
+            this.gameRepo = gameRepo;
+        }
+
         public void Create(Game game)
         {
-            throw new NotImplementedException();
+            if (game.GameName == null)
+            {
+                throw new ArgumentNullException("Game must have a name");
+            }
+            gameRepo.Create(game);
         }
 
         public void Delete(string gameName)
         {
-            throw new NotImplementedException();
+            gameRepo.Delete(gameName);
         }
 
         public IEnumerable<Game> GetAll()
         {
-            throw new NotImplementedException();
+            return gameRepo.GetAll();
         }
 
         public Game Read(string gameName)
         {
-            throw new NotImplementedException();
+            return gameRepo.Read(gameName);
         }
 
         public void Update(Game game)
         {
-            throw new NotImplementedException();
+            gameRepo.Update(game);
         }
+
+
     }
 }
