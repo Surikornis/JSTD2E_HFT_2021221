@@ -33,7 +33,7 @@ namespace JSTD2E_HFT_2021221.Data
                 .OnDelete(DeleteBehavior.Restrict);
             });
 
-            DeveloperTeam RiotGames = new DeveloperTeam() { DevTeam = "Riot Games", DateofFoundation = 206, HQ = "Los Angeles" };
+            DeveloperTeam RiotGames = new DeveloperTeam() { DevTeam = "Riot Games", DateofFoundation = 2006, HQ = "Los Angeles" };
             DeveloperTeam Activison = new DeveloperTeam() { DevTeam = "Activison", DateofFoundation = 1979, HQ = "Sunnyvale" };
             DeveloperTeam Blizzard = new DeveloperTeam() { DevTeam = "Blizzard", DateofFoundation = 1991, HQ = "Irvine" };
             DeveloperTeam CDProject = new DeveloperTeam() { DevTeam = "CD Project", DateofFoundation = 1994, HQ = "Warsaw" };

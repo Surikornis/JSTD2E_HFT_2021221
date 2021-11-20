@@ -46,6 +46,7 @@ namespace JSTD2E_HFT_2021221.Logic
         }
 
         // gives back the most expensive game the buyer have purchased
+        // check this one again
         public IEnumerable<KeyValuePair<List<Game>, string>> Oldest()
         {
             return from x in gameRepo.GetAll()
@@ -54,9 +55,13 @@ namespace JSTD2E_HFT_2021221.Logic
                    (g.Key, g.Max(t => t.GameName));
         }
 
-        public int Cheapest()
+        // gives back the type of a game
+        public IEnumerable<KeyValuePair<string, IEnumerable<string>>> GetGameType()
         {
-            return gameRepo.GetAll().Min(t => t.Price);
+            return from x in gameRepo.GetAll()
+                   group x by x.Type into g
+                   select new KeyValuePair<string, IEnumerable<string>>
+                   (g.Key, g.Select(t => t.Type).Where(t => t.Contains("TPS")));
         }
     }
 }

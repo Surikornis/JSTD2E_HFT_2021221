@@ -1,34 +1,54 @@
 ﻿using JSTD2E_HFT_2021221.Models;
+using JSTD2E_HFT_2021221.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JSTD2E_HFT_2021221.Logic
 {
     public class BuyerLogic : IBuyerLogic
     {
+        IBuyerRepository buyerRepo;
+
+        public BuyerLogic(IBuyerRepository buyerRepo)
+        {
+            this.buyerRepo = buyerRepo;
+        }
         public void Create(Buyer buyer)
         {
-            throw new NotImplementedException();
+            if (buyer.Age < 18)
+            {
+                throw new Exception("Restricted age");
+            }
+            buyerRepo.Create(buyer);
         }
 
         public void Delete(string name)
         {
-            throw new NotImplementedException();
+            buyerRepo.Delete(name);
         }
 
         public IEnumerable<Buyer> GetAll()
         {
-            throw new NotImplementedException();
+            return buyerRepo.GetAll();
         }
 
         public Buyer Read(string name)
         {
-            throw new NotImplementedException();
+            return buyerRepo.Read(name);
         }
 
         public void Update(Buyer buyer)
         {
-            throw new NotImplementedException();
+            buyerRepo.Update(buyer);
         }
+
+        //public IEnumerable<KeyValuePair<List<Game>, IEnumerable<string>>> Result()
+        //{
+        //    return from x in buyerRepo.GetAll()
+        //           group x by x.Games into g
+        //           select new KeyValuePair<List<Game>, IEnumerable<string>>
+        //           (g.Key,
+        //}
     }
 }
