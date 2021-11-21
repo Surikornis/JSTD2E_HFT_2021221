@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JSTD2E_HFT_2021221.Logic
 {
-    class DeveloperLogic : IDeveloperTeamLogic
+    public class DeveloperLogic : IDeveloperTeamLogic
     {
         IDeveloperTeamRepository devRepo;
 
