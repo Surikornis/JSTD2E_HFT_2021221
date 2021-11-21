@@ -43,12 +43,9 @@ namespace JSTD2E_HFT_2021221.Logic
             buyerRepo.Update(buyer);
         }
 
-        //public IEnumerable<KeyValuePair<List<Game>, IEnumerable<string>>> Result()
-        //{
-        //    return from x in buyerRepo.GetAll()
-        //           group x by x.Games into g
-        //           select new KeyValuePair<List<Game>, IEnumerable<string>>
-        //           (g.Key,
-        //}
+        public double AvgAge()
+        {
+            return buyerRepo.GetAll().Average(t => t.Age);
+        }
     }
 }
