@@ -13,16 +13,19 @@ namespace JSTD2E_HFT_2021221.Test
     public class Test
     {
         GameLogic g1;
+        BuyerLogic b1;
+        DeveloperLogic d1;
 
         [SetUp]
         public void Init()
         {
             var mockGameRepository = new Mock<IGameRepository>();
+            var mockBuyerRepository = new Mock<IBuyerRepository>();
+            var mockDevRepository = new Mock<IDeveloperTeamRepository>();
 
             Buyer fakeBuyer = new Buyer();
             fakeBuyer.Name = "Sanyi";
             fakeBuyer.Age = 18;
-
             var games = new List<Game>()
             {
                 new Game()
@@ -43,17 +46,106 @@ namespace JSTD2E_HFT_2021221.Test
                 }
             }.AsQueryable();
 
-            mockGameRepository.Setup((t) => t.GetAll()).Returns(games);
+            var buyers = new List<Buyer>()
+            {
+                new Buyer()
+                {
+                    Name = "Laci",
+                    Age = 20
+                },
 
+                new Buyer()
+                {
+                    Name = "Saci",
+                    Age = 10
+                }
+
+            }.AsQueryable();
+
+            var devteams = new List<DeveloperTeam>()
+            {
+                new DeveloperTeam()
+                {
+                    DevTeam = "Activision",
+                    DateofFoundation = 2010
+                },
+
+                new DeveloperTeam()
+                {
+                    DevTeam = "Blizzard",
+                    DateofFoundation = 2000
+                }
+
+            }.AsQueryable();
+
+            mockGameRepository.Setup((t) => t.GetAll()).Returns(games);
             g1 = new GameLogic(mockGameRepository.Object);
+
+            mockBuyerRepository.Setup((t) => t.GetAll()).Returns(buyers);
+            b1 = new BuyerLogic(mockBuyerRepository.Object);
+
+            mockDevRepository.Setup((t) => t.GetAll()).Returns(devteams);
+            d1 = new DeveloperLogic(mockDevRepository.Object);
         }
 
         [Test]
-        public void Dunno()
+        public void MostExpensive()
         {
-            var result = g1.Oldest();
+            //ACT
+            var result = g1.Expensive();
 
-            //Assert.That(result, Is.EqualTo());
+            var expected = new List<KeyValuePair<string, double>>()
+            {
+                new KeyValuePair<string, double>("Sanyi", 2000)
+            };
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void AvgPrice()
+        {
+            //ACT
+            var result = g1.AveragePrice();
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(1500));
+        }
+
+        [Test]
+        public void List()
+        {
+            var result = g1.List();
+
+            var expected = new List<string>();
+            expected.Add("CoD");
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void AvgAge()
+        {
+            var result = b1.AvgAge();
+
+            Assert.That(result, Is.EqualTo(15));
+        }
+
+        [Test]
+        public void Foundation()
+        {
+            var result = d1.Latest();
+
+            Assert.That(result, Is.EqualTo(2010));
+        }
+
+        //[Test]
+        //public void CreateGame(Game game)
+        //{
+        //    g1.Create(game);
+
+        //    Assert.That(game, Is.EqualTo(game));
+        //}
     }
 }

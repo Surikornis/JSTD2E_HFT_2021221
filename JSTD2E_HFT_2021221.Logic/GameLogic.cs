@@ -45,23 +45,23 @@ namespace JSTD2E_HFT_2021221.Logic
             gameRepo.Update(game);
         }
 
-        // gives back the most expensive game the buyer have purchased
-        // check this one again
-        public IEnumerable<KeyValuePair<List<Game>, string>> Oldest()
+        // gives back the most expensive game owned by buyer
+        public IEnumerable<KeyValuePair<string, double>> Expensive()
         {
             return from x in gameRepo.GetAll()
-                   group x by x.Buyer.Games into g
-                   select new KeyValuePair<List<Game>, string>
-                   (g.Key, g.Max(t => t.GameName));
+                   group x by x.Buyer.Name into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Max(t => t.Price));
         }
 
-        // gives back the type of a game
-        public IEnumerable<KeyValuePair<string, IEnumerable<string>>> GetGameType()
+        public List<string> List()
         {
-            return from x in gameRepo.GetAll()
-                   group x by x.Type into g
-                   select new KeyValuePair<string, IEnumerable<string>>
-                   (g.Key, g.Select(t => t.Type).Where(t => t.Contains("TPS")));
+            return gameRepo.GetAll().Where(t => t.Price > 1500).Select(t => t.GameName).ToList();
+        }
+
+        public double AveragePrice()
+        {
+            return gameRepo.GetAll().Average(t => t.Price);
         }
     }
 }

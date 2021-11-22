@@ -46,21 +46,25 @@ namespace JSTD2E_HFT_2021221.Logic
             devRepo.Update(devteam);
         }
 
-        public IEnumerable<KeyValuePair<string, IEnumerable<string>>> LengthCheck()
-        {
-            return from x in devRepo.GetAll()
-                   group x by x.DevTeam into g
-                   select new KeyValuePair<string, IEnumerable<string>>
-                   (g.Key, g.Select(t => t.DevTeam).Where(t => t.Length < 20));
+        //public IEnumerable<KeyValuePair<string, int>> LatestFoundation()
+        //{
+        //    return from x in devRepo.GetAll()
+        //           group x by x.DevTeam into g
+        //           select new KeyValuePair<string, int>
+        //           (g.Key, g.Max(t => t.DateofFoundation));
 
-        }
+        //}
         // the companies which were founded after 2005
-        public IEnumerable<KeyValuePair<string, IEnumerable<string>>> Foundation()
+        //public IEnumerable<KeyValuePair<string, IEnumerable<int>>> Foundation()
+        //{
+        //    return from x in devRepo.GetAll()
+        //           group x by x.DevTeam into g
+        //           select new KeyValuePair<string, IEnumerable<int>>
+        //           (g.Key, g.Where(t => t.DateofFoundation > 2005).Select(t => t.DateofFoundation));
+        //}
+        public int Latest()
         {
-            return from x in devRepo.GetAll()
-                   group x by x.DevTeam into g
-                   select new KeyValuePair<string, IEnumerable<string>>
-                   (g.Key, g.Where(t => t.DateofFoundation > 2005).Select(t => t.DevTeam));
+            return devRepo.GetAll().Max(t => t.DateofFoundation);
         }
     }
 }
