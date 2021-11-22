@@ -141,18 +141,6 @@ namespace JSTD2E_HFT_2021221.Test
         }
 
         [Test]
-        public void CreateGame()
-        {
-            Game game = new Game()
-            {
-                DevTeamName = "Activision",
-                GameName = "CoD"
-            };
-
-            Assert.That(() => g1.Create(game), Throws.Nothing);
-        }
-
-        [Test]
         public void CreateBuyerException()
         {
             Buyer buyer = new Buyer()
@@ -174,6 +162,17 @@ namespace JSTD2E_HFT_2021221.Test
             Assert.That(() => d1.Create(dt), Throws.Exception);
         }
 
+        [Test]
+        public void CreateGame()
+        {
+            Game game = new Game()
+            {
+                DevTeamName = "Activision",
+                GameName = "CoD"
+            };
+
+            Assert.That(() => g1.Create(game), Throws.Nothing);
+        }
         [Test]
         public void CreateGameException()
         {
