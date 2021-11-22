@@ -140,12 +140,60 @@ namespace JSTD2E_HFT_2021221.Test
             Assert.That(result, Is.EqualTo(2010));
         }
 
-        //[Test]
-        //public void CreateGame(Game game)
-        //{
-        //    g1.Create(game);
+        [Test]
+        public void CreateGame()
+        {
+            Game game = new Game()
+            {
+                DevTeamName = "Activision",
+                GameName = "CoD"
+            };
 
-        //    Assert.That(game, Is.EqualTo(game));
-        //}
+            Assert.That(() => g1.Create(game), Throws.Nothing);
+        }
+
+        [Test]
+        public void CreateBuyerException()
+        {
+            Buyer buyer = new Buyer()
+            {
+                Age = 12
+            };
+
+            Assert.That(() => b1.Create(buyer), Throws.Exception);
+        }
+
+        [Test]
+        public void CreateDevTeam()
+        {
+            DeveloperTeam dt = new DeveloperTeam()
+            {
+                DateofFoundation = 2022
+            };
+
+            Assert.That(() => d1.Create(dt), Throws.Exception);
+        }
+
+        [Test]
+        public void CreateGameException()
+        {
+            Game game = new Game()
+            {
+                DevTeamName = "Activision"
+            };
+
+            Assert.That(() => g1.Create(game), Throws.Exception);
+        }
+
+        [Test]
+        public void CreateBuyer()
+        {
+            Buyer buyer = new Buyer()
+            {
+                Age = 19
+            };
+
+            Assert.That(() => b1.Create(buyer), Throws.Nothing);
+        }
     }
 }

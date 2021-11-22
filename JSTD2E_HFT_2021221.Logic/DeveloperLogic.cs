@@ -18,7 +18,6 @@ namespace JSTD2E_HFT_2021221.Logic
         }
         public void Create(DeveloperTeam devteam)
         {
-            // need to test if checks well 🠗
             if (devteam.DateofFoundation > DateTime.Now.Year)
             {
                 throw new Exception("Invalid fundation date");
@@ -45,23 +44,7 @@ namespace JSTD2E_HFT_2021221.Logic
         {
             devRepo.Update(devteam);
         }
-
-        //public IEnumerable<KeyValuePair<string, int>> LatestFoundation()
-        //{
-        //    return from x in devRepo.GetAll()
-        //           group x by x.DevTeam into g
-        //           select new KeyValuePair<string, int>
-        //           (g.Key, g.Max(t => t.DateofFoundation));
-
-        //}
-        // the companies which were founded after 2005
-        //public IEnumerable<KeyValuePair<string, IEnumerable<int>>> Foundation()
-        //{
-        //    return from x in devRepo.GetAll()
-        //           group x by x.DevTeam into g
-        //           select new KeyValuePair<string, IEnumerable<int>>
-        //           (g.Key, g.Where(t => t.DateofFoundation > 2005).Select(t => t.DateofFoundation));
-        //}
+        
         public int Latest()
         {
             return devRepo.GetAll().Max(t => t.DateofFoundation);
