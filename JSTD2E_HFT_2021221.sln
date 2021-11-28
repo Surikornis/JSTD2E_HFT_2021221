@@ -28,8 +28,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsDb.Endpoint", "ModelsDb.Endpoint\ModelsDb.Endpoint.csproj", "{58CFA04D-EFA6-41CF-91D6-007245CD46C2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,10 +62,6 @@ Global
 		{BC07A2B3-5A75-4ACD-AA9C-60D33AA6D74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC07A2B3-5A75-4ACD-AA9C-60D33AA6D74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC07A2B3-5A75-4ACD-AA9C-60D33AA6D74C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58CFA04D-EFA6-41CF-91D6-007245CD46C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58CFA04D-EFA6-41CF-91D6-007245CD46C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58CFA04D-EFA6-41CF-91D6-007245CD46C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58CFA04D-EFA6-41CF-91D6-007245CD46C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,7 +74,6 @@ Global
 		{1A96EE13-A6A5-4EB7-AF40-D3E3EF54E2C9} = {3D9B7769-9157-4DD6-93F5-6FAB40C42070}
 		{7AAB479A-75C2-4DD7-BFBB-B13C6454F915} = {3D9B7769-9157-4DD6-93F5-6FAB40C42070}
 		{BC07A2B3-5A75-4ACD-AA9C-60D33AA6D74C} = {3D9B7769-9157-4DD6-93F5-6FAB40C42070}
-		{58CFA04D-EFA6-41CF-91D6-007245CD46C2} = {3D9B7769-9157-4DD6-93F5-6FAB40C42070}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {63B005D2-C231-48FA-B5C9-87CC8B5618D5}

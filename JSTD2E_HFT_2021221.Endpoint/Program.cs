@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JSTD2E_HFT_2021221.Endpoint
+namespace ModelsDb.Endpoint
 {
     public class Program
     {
