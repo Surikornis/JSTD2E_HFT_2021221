@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace JSTD2E_HFT_2021221.Models
 {
@@ -24,6 +25,7 @@ namespace JSTD2E_HFT_2021221.Models
         public virtual List<Game> Games { get; set; } // not sure yet if needed
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Game Game { get; set; }
     }
 }

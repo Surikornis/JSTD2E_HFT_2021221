@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace JSTD2E_HFT_2021221.Models
 {
@@ -24,6 +25,7 @@ namespace JSTD2E_HFT_2021221.Models
         public string DevTeamName { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual DeveloperTeam DevTeam { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace JSTD2E_HFT_2021221.Models
 {
@@ -19,6 +20,7 @@ namespace JSTD2E_HFT_2021221.Models
         public string HQ { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Game> Games { get; set; }
     }
 }

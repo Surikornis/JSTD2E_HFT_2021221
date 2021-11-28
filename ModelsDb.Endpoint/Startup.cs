@@ -1,6 +1,10 @@
+using JSTD2E_HFT_2021221.Data;
+using JSTD2E_HFT_2021221.Logic;
+using JSTD2E_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -15,6 +19,14 @@ namespace ModelsDb.Endpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddTransient<IBuyerLogic, BuyerLogic>();
+            services.AddTransient<IGameLogic, GameLogic>();
+            services.AddTransient<IDeveloperTeamLogic, DeveloperLogic>();
+            services.AddTransient<IBuyerRepository, BuyerRepository>();
+            services.AddTransient<IGameRepository, GameRepository>();
+            services.AddTransient<IDeveloperTeamRepository, DeveloperTeamRepository>();
+            services.AddTransient<ModelsDbContext, ModelsDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
