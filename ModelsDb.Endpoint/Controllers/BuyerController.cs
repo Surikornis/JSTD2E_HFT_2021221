@@ -1,4 +1,5 @@
 ﻿using JSTD2E_HFT_2021221.Logic;
+using JSTD2E_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,36 +15,44 @@ namespace ModelsDb.Endpoint.Controllers
 
         IBuyerLogic bl;
 
-        // GET: api/<BuyerController>
+        public BuyerController(IBuyerLogic bl)
+        {
+            this.bl = bl;
+        }
+
+        // GET: /buyer
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Buyer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return bl.GetAll();
         }
 
-        // GET api/<BuyerController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET /buyer/5
+        [HttpGet("{name}")]
+        public Buyer Get(string name)
         {
-            return "value";
+            return bl.Read(name);
         }
 
-        // POST api/<BuyerController>
+        // POST /car
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Buyer value)
         {
+            bl.Create(value);
         }
 
-        // PUT api/<BuyerController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT /car
+        [HttpPut]
+        public void Put([FromBody] Buyer value)
         {
+            bl.Update(value);
         }
 
-        // DELETE api/<BuyerController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE car/5
+        [HttpDelete("{name}")]
+        public void Delete(string name)
         {
+            bl.Delete(name);
         }
     }
 }
