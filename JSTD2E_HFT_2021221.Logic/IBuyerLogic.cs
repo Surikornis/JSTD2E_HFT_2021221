@@ -14,5 +14,6 @@ namespace JSTD2E_HFT_2021221.Logic
         IEnumerable<Buyer> GetAll();
         Buyer Read(string name);
         void Update(Buyer buyer);
+        double AvgAge();
     }
 }

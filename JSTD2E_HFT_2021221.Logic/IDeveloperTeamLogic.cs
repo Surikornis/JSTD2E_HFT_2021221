@@ -14,5 +14,6 @@ namespace JSTD2E_HFT_2021221.Logic
         IEnumerable<DeveloperTeam> GetAll();
         DeveloperTeam Read(string devteam);
         void Update(DeveloperTeam devteam);
+        public int Latest();
     }
 }

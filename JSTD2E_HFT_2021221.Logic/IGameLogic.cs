@@ -14,5 +14,8 @@ namespace JSTD2E_HFT_2021221.Logic
         IEnumerable<Game> GetAll();
         Game Read(string gameName);
         void Update(Game game);
+        public IEnumerable<KeyValuePair<string, double>> Expensive();
+        public List<string> List();
+        public double AveragePrice();
     }
 }
