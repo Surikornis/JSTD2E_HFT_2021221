@@ -14,9 +14,9 @@ namespace JSTD2E_HFT_2021221.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string DevTeam { get; set; }
 
-        public string HQ { get; set; }
-
         public int DateofFoundation { get; set; }
+
+        public string HQ { get; set; }
 
         [NotMapped]
         public virtual ICollection<Game> Games { get; set; }

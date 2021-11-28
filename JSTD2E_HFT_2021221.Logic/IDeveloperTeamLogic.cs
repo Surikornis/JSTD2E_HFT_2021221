@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JSTD2E_HFT_2021221.Logic
 {
-    interface IDeveloperTeamLogic
+    public interface IDeveloperTeamLogic
     {
         void Create(DeveloperTeam devteam);
         void Delete(string devteam);

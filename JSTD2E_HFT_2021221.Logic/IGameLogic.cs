@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JSTD2E_HFT_2021221.Logic
 {
-    interface IGameLogic
+    public interface IGameLogic
     {
         void Create(Game game);
         void Delete(string gameName);

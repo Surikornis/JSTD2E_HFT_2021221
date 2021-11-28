@@ -9,6 +9,8 @@ namespace JSTD2E_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         public string GameName { get; set; }
 
         public int Price { get; set; }

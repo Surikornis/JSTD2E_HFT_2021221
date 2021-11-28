@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JSTD2E_HFT_2021221.Logic
 {
-    interface IBuyerLogic
+    public interface IBuyerLogic
     {
         void Create(Buyer buyer);
         void Delete(string name);

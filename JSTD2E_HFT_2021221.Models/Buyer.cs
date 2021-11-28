@@ -18,10 +18,10 @@ namespace JSTD2E_HFT_2021221.Models
 
         public int DateofPurchase { get; set; }
 
-        [ForeignKey(nameof(Game))]
-        public string GameName { get; set; }
+        //[ForeignKey(nameof(Game))]
+        //public string GameName { get; set; }
 
-        public virtual List<Game> Games { get; set; }
+        public virtual List<Game> Games { get; set; } // not sure yet if needed
 
         [NotMapped]
         public virtual Game Game { get; set; }
