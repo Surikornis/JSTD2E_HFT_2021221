@@ -16,7 +16,7 @@ namespace JSTD2E_HFT_2021221.Models
         public string Type { get; set; }
 
         [Required]
-        public Buyer Buyer { get; set; }
+        public virtual Buyer Buyer { get; set; }
 
         [ForeignKey(nameof(DevTeam))]
         public string DevTeamName { get; set; }
