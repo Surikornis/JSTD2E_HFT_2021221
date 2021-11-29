@@ -13,6 +13,8 @@ namespace JSTD2E_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         public string DevTeam { get; set; }
 
         public int DateofFoundation { get; set; }
@@ -22,5 +24,10 @@ namespace JSTD2E_HFT_2021221.Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Game> Games { get; set; }
+
+        public DeveloperTeam()
+        {
+            Games = new HashSet<Game>();
+        }
     }
 }

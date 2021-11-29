@@ -6,9 +6,9 @@ namespace JSTD2E_HFT_2021221.Repository
     public interface IGameRepository
     {
         void Create(Game game);
-        void Delete(string gameName);
+        void Delete(int id);
         IQueryable<Game> GetAll();
-        Game Read(string gameName);
+        Game Read(int id);
         void Update(Game game);
     }
 }

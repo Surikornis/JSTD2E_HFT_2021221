@@ -10,9 +10,9 @@ namespace JSTD2E_HFT_2021221.Logic
     public interface IBuyerLogic
     {
         void Create(Buyer buyer);
-        void Delete(string name);
+        void Delete(int id);
         IEnumerable<Buyer> GetAll();
-        Buyer Read(string name);
+        Buyer Read(int id);
         void Update(Buyer buyer);
         double AvgAge();
     }

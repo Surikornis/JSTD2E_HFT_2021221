@@ -13,6 +13,8 @@ namespace JSTD2E_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public int Age { get; set; }
@@ -21,6 +23,11 @@ namespace JSTD2E_HFT_2021221.Models
 
         [NotMapped]
         [JsonIgnore]
-        public virtual List<Game> Games { get; set; } // not sure yet if needed
+        public virtual ICollection<Game> Games { get; set; }
+
+        public Buyer()
+        {
+            Games = new HashSet<Game>();
+        }
     }
 }

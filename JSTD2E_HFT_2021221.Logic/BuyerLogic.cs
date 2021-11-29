@@ -23,9 +23,9 @@ namespace JSTD2E_HFT_2021221.Logic
             buyerRepo.Create(buyer);
         }
 
-        public void Delete(string name)
+        public void Delete(int id)
         {
-            buyerRepo.Delete(name);
+            buyerRepo.Delete(id);
         }
 
         public IEnumerable<Buyer> GetAll()
@@ -33,9 +33,9 @@ namespace JSTD2E_HFT_2021221.Logic
             return buyerRepo.GetAll();
         }
 
-        public Buyer Read(string name)
+        public Buyer Read(int id)
         {
-            return buyerRepo.Read(name);
+            return buyerRepo.Read(id);
         }
 
         public void Update(Buyer buyer)

@@ -26,24 +26,40 @@ namespace JSTD2E_HFT_2021221.Test
             Buyer fakeBuyer = new Buyer();
             fakeBuyer.Name = "Sanyi";
             fakeBuyer.Age = 18;
+
+            var devteams = new List<DeveloperTeam>()
+            {
+                new DeveloperTeam()
+                {
+                    DevTeam = "Activision",
+                    DateofFoundation = 2010
+                },
+
+                new DeveloperTeam()
+                {
+                    DevTeam = "Blizzard",
+                    DateofFoundation = 2000
+                }
+
+            }.AsQueryable();
+
             var games = new List<Game>()
             {
-                new Game()
-                {
-                    GameName = "LoL",
-                    Price = 1000,
-                    Type = "Moba",
-                    Buyer = fakeBuyer,
-                    DevTeamName = "Riot"
-                },
                 new Game()
                 {
                     GameName = "CoD",
                     Price = 2000,
                     Type = "FPS",
-                    Buyer = fakeBuyer,
-                    DevTeamName = "Activision"
+                    Buyer = fakeBuyer
+                },
+                new Game()
+                {
+                    GameName = "LoL",
+                    Price = 1000,
+                    Type = "Moba",
+                    Buyer = fakeBuyer
                 }
+
             }.AsQueryable();
 
             var buyers = new List<Buyer>()
@@ -62,21 +78,7 @@ namespace JSTD2E_HFT_2021221.Test
 
             }.AsQueryable();
 
-            var devteams = new List<DeveloperTeam>()
-            {
-                new DeveloperTeam()
-                {
-                    DevTeam = "Activision",
-                    DateofFoundation = 2010
-                },
 
-                new DeveloperTeam()
-                {
-                    DevTeam = "Blizzard",
-                    DateofFoundation = 2000
-                }
-
-            }.AsQueryable();
 
             mockGameRepository.Setup((t) => t.GetAll()).Returns(games);
             g1 = new GameLogic(mockGameRepository.Object);
@@ -167,7 +169,7 @@ namespace JSTD2E_HFT_2021221.Test
         {
             Game game = new Game()
             {
-                DevTeamName = "Activision",
+                Id = 1,
                 GameName = "CoD"
             };
 
@@ -178,7 +180,7 @@ namespace JSTD2E_HFT_2021221.Test
         {
             Game game = new Game()
             {
-                DevTeamName = "Activision"
+                Id = 2
             };
 
             Assert.That(() => g1.Create(game), Throws.Exception);

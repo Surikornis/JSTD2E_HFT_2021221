@@ -25,9 +25,9 @@ namespace JSTD2E_HFT_2021221.Logic
             gameRepo.Create(game);
         }
 
-        public void Delete(string gameName)
+        public void Delete(int id)
         {
-            gameRepo.Delete(gameName);
+            gameRepo.Delete(id);
         }
 
         public IEnumerable<Game> GetAll()
@@ -35,9 +35,9 @@ namespace JSTD2E_HFT_2021221.Logic
             return gameRepo.GetAll();
         }
 
-        public Game Read(string gameName)
+        public Game Read(int id)
         {
-            return gameRepo.Read(gameName);
+            return gameRepo.Read(id);
         }
 
         public void Update(Game game)

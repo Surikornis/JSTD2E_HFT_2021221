@@ -22,9 +22,9 @@ namespace JSTD2E_HFT_2021221.Repository
             mdb.SaveChanges();
         }
 
-        public void Delete(string name)
+        public void Delete(int id)
         {
-            var buyerToDelete = Read(name);
+            var buyerToDelete = Read(id);
             mdb.Buyers.Remove(buyerToDelete);
             mdb.SaveChanges();
         }
@@ -34,14 +34,14 @@ namespace JSTD2E_HFT_2021221.Repository
             return mdb.Buyers;
         }
 
-        public Buyer Read(string name)
+        public Buyer Read(int id)
         {
-            return mdb.Buyers.FirstOrDefault(x => x.Name == name);
+            return mdb.Buyers.FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(Buyer buyer)
         {
-            var buyerToUpdate = Read(buyer.Name);
+            var buyerToUpdate = Read(buyer.Id);
             buyerToUpdate.Name = buyer.Name;
             mdb.SaveChanges();
         }

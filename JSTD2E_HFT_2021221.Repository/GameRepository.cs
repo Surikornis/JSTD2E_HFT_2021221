@@ -23,9 +23,9 @@ namespace JSTD2E_HFT_2021221.Repository
             mdb.SaveChanges();
         }
 
-        public void Delete(string gameName)
+        public void Delete(int id)
         {
-            var gameToDelete = Read(gameName);
+            var gameToDelete = Read(id);
             mdb.Games.Remove(gameToDelete);
             mdb.SaveChanges();
         }
@@ -35,14 +35,14 @@ namespace JSTD2E_HFT_2021221.Repository
             return mdb.Games;
         }
 
-        public Game Read(string gameName)
+        public Game Read(int id)
         {
-            return mdb.Games.FirstOrDefault(x => x.GameName == gameName);
+            return mdb.Games.FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(Game game)
         {
-            var gameToUpdate = Read(game.GameName);
+            var gameToUpdate = Read(game.Id);
             gameToUpdate.GameName = game.GameName;
             mdb.SaveChanges();
         }

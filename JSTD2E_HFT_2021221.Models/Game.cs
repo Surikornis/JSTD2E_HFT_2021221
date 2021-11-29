@@ -19,19 +19,18 @@ namespace JSTD2E_HFT_2021221.Models
         public string GameName { get; set; }
 
 
-        [ForeignKey(nameof(DevTeam))]
-        public string DevTeamName { get; set; }
-
         [ForeignKey(nameof(Buyer))]
-        public string BuyerName { get; set; }
+        public int BuyerId { get; set; }
 
+        [ForeignKey(nameof(DevTeam))]
+        public int DevTeamId { get; set; }
+
+        //[JsonIgnore]
         [NotMapped]
-        [JsonIgnore]
-        //[Required]
         public virtual Buyer Buyer { get; set; }
 
+        //[JsonIgnore]
         [NotMapped]
-        [JsonIgnore]
         public virtual DeveloperTeam DevTeam { get; set; }
     }
 }
