@@ -28,7 +28,7 @@ namespace ModelsDb.Endpoint.Controllers
         }
 
         // GET /buyer/5
-        [HttpGet("{name}")]
+        [HttpGet("{id}")]
         public Buyer Get(int id)
         {
             return bl.Read(id);
@@ -49,7 +49,7 @@ namespace ModelsDb.Endpoint.Controllers
         }
 
         // DELETE car/5
-        [HttpDelete("{name}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             bl.Delete(id);

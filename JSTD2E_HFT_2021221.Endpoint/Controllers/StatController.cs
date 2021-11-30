@@ -22,35 +22,35 @@ namespace ModelsDb.Endpoint.Controllers
             this.gl = gl;
         }
 
-        // GET: stat/avgagebuyer
+        // GET: stat/avgage
         [HttpGet]
         public double AvgAge()
         {
             return bl.AvgAge();
         }
 
-        // GET: stat/latestdev
+        // GET: stat/latest
         [HttpGet]
         public int Latest()
         {
             return dl.Latest();
         }
 
-        // GET: stat/expensivegame
+        // GET: stat/expensive
         [HttpGet]
         public IEnumerable<KeyValuePair<string, double>> Expensive()
         {
             return gl.Expensive();
         }
 
-        // GET: stat/listgame
+        // GET: stat/list
         [HttpGet]
         public List<string> List()
         {
             return gl.List();
         }
 
-        // GET: stat/avgpricegame
+        // GET: stat/averageprice
         [HttpGet]
         public double AveragePrice()
         {

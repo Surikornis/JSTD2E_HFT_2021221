@@ -15,8 +15,12 @@ namespace JSTD2E_HFT_2021221.Client
             DeveloperLogic developerLogic = new DeveloperLogic(new DeveloperTeamRepository(mdb));
             GameLogic gameLogic = new GameLogic(new GameRepository(mdb));
 
-            var q1 = buyerLogic.AvgAge();
-            Console.WriteLine(q1);
+            //var q1 = buyerLogic.AvgAge();
+            //var q2 = developerLogic.Latest();
+            //var q3 = gameLogic.AveragePrice();
+            //var q5 = gameLogic.List();
+
+            //var q4 = gameLogic.Expensive();
         }
     }
 }
