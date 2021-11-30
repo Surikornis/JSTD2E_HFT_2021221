@@ -50,14 +50,16 @@ namespace JSTD2E_HFT_2021221.Test
                     GameName = "CoD",
                     Price = 2000,
                     Type = "FPS",
-                    Buyer = fakeBuyer
+                    Buyer = fakeBuyer,
+                    DevTeam = devteams.ToList()[0]
                 },
                 new Game()
                 {
-                    GameName = "LoL",
+                    GameName = "Starcraft",
                     Price = 1000,
                     Type = "Moba",
-                    Buyer = fakeBuyer
+                    Buyer = fakeBuyer,
+                    DevTeam = devteams.ToList()[1]
                 }
 
             }.AsQueryable();
@@ -96,8 +98,8 @@ namespace JSTD2E_HFT_2021221.Test
 
             var expected = new List<KeyValuePair<string, double>>()
             {
-                new KeyValuePair<string, double>("CoD", 2000),
-                new KeyValuePair<string, double>("LoL", 2000)
+                new KeyValuePair<string, double>("Activision", 2000),
+                new KeyValuePair<string, double>("Blizzard", 1000)
             };
 
             //ASSERT
