@@ -45,11 +45,11 @@ namespace JSTD2E_HFT_2021221.Logic
             gameRepo.Update(game);
         }
 
-        // gives back the most expensive game owned by buyer
+        // gives the most expensive game specified devteam has made
         public IEnumerable<KeyValuePair<string, double>> Expensive()
         {
             return from x in gameRepo.GetAll()
-                   group x by x.Buyer.Name into g
+                   group x by x.DevTeam.DevTeam into g
                    select new KeyValuePair<string, double>
                    (g.Key, g.Max(t => t.Price));
         }

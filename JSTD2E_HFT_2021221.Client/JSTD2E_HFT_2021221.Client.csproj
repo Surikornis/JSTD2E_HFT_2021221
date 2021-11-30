@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JSTD2E_HFT_2021221.Data\JSTD2E_HFT_2021221.Data.csproj" />
-    <ProjectReference Include="..\JSTD2E_HFT_2021221.Logic\JSTD2E_HFT_2021221.Logic.csproj" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\JSTD2E_HFT_2021221.Models\JSTD2E_HFT_2021221.Models.csproj" />
   </ItemGroup>
 

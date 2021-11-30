@@ -1,7 +1,6 @@
-﻿using JSTD2E_HFT_2021221.Data;
-using JSTD2E_HFT_2021221.Logic;
-using JSTD2E_HFT_2021221.Repository;
+﻿using JSTD2E_HFT_2021221.Models;
 using System;
+using System.Collections.Generic;
 
 namespace JSTD2E_HFT_2021221.Client
 {
@@ -9,18 +8,15 @@ namespace JSTD2E_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
-            ModelsDbContext mdb = new ModelsDbContext();
+            System.Threading.Thread.Sleep(12000);
 
-            BuyerLogic buyerLogic = new BuyerLogic(new BuyerRepository(mdb));
-            DeveloperLogic developerLogic = new DeveloperLogic(new DeveloperTeamRepository(mdb));
-            GameLogic gameLogic = new GameLogic(new GameRepository(mdb));
+            RestService rest = new RestService("http://localhost:62282");
 
-            //var q1 = buyerLogic.AvgAge();
-            //var q2 = developerLogic.Latest();
-            //var q3 = gameLogic.AveragePrice();
-            //var q5 = gameLogic.List();
+            var cars = rest.Get<Buyer>("buyer");
+            var devteams = rest.Get<DeveloperTeam>("devteam");
+            var games = rest.Get<Game>("game");
 
-            //var q4 = gameLogic.Expensive();
+            ;
         }
     }
 }
