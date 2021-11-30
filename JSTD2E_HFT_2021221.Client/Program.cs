@@ -17,8 +17,6 @@ namespace JSTD2E_HFT_2021221.Client
 
             var q1 = buyerLogic.AvgAge();
             Console.WriteLine(q1);
-
-            ;
         }
     }
 }

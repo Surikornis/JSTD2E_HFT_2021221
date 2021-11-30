@@ -78,8 +78,6 @@ namespace JSTD2E_HFT_2021221.Test
 
             }.AsQueryable();
 
-
-
             mockGameRepository.Setup((t) => t.GetAll()).Returns(games);
             g1 = new GameLogic(mockGameRepository.Object);
 

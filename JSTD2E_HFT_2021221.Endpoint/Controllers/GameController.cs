@@ -28,9 +28,9 @@ namespace ModelsDb.Endpoint.Controllers
 
         // GET /buyer/5
         [HttpGet("{name}")]
-        public Game Get(string name)
+        public Game Get(int id)
         {
-            return gl.Read(name);
+            return gl.Read(id);
         }
 
         // POST /car
@@ -49,9 +49,9 @@ namespace ModelsDb.Endpoint.Controllers
 
         // DELETE car/5
         [HttpDelete("{name}")]
-        public void Delete(string name)
+        public void Delete(int id)
         {
-            gl.Delete(name);
+            gl.Delete(id);
         }
     }
 }
