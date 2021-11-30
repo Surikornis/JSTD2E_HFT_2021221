@@ -19,39 +19,39 @@ namespace ModelsDb.Endpoint.Controllers
             this.dl = dl;
         }
 
-        // GET: /buyer
+        // GET: /developerteam
         [HttpGet]
         public IEnumerable<DeveloperTeam> Get()
         {
             return dl.GetAll();
         }
 
-        // GET /buyer/5
-        [HttpGet("{name}")]
-        public DeveloperTeam Get(string name)
+        // GET /developerteam/5
+        [HttpGet("{id}")]
+        public DeveloperTeam Get(int id)
         {
-            return dl.Read(name);
+            return dl.Read(id);
         }
 
-        // POST /car
+        // POST /developerteam
         [HttpPost]
         public void Post([FromBody] DeveloperTeam value)
         {
             dl.Create(value);
         }
 
-        // PUT /car
+        // PUT /developerteam
         [HttpPut]
         public void Put([FromBody] DeveloperTeam value)
         {
             dl.Update(value);
         }
 
-        // DELETE car/5
-        [HttpDelete("{name}")]
-        public void Delete(string name)
+        // DELETE developerteam/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
         {
-            dl.Delete(name);
+            dl.Delete(id);
         }
     }
 }

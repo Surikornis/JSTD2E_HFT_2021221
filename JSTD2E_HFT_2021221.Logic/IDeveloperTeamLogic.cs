@@ -10,9 +10,9 @@ namespace JSTD2E_HFT_2021221.Logic
     public interface IDeveloperTeamLogic
     {
         void Create(DeveloperTeam devteam);
-        void Delete(string devteam);
+        void Delete(int id);
         IEnumerable<DeveloperTeam> GetAll();
-        DeveloperTeam Read(string devteam);
+        DeveloperTeam Read(int id);
         void Update(DeveloperTeam devteam);
         public int Latest();
     }

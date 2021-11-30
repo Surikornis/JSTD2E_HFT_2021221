@@ -19,35 +19,35 @@ namespace ModelsDb.Endpoint.Controllers
             this.gl = gl;
         }
 
-        // GET: /buyer
+        // GET: /game
         [HttpGet]
         public IEnumerable<Game> Get()
         {
             return gl.GetAll();
         }
 
-        // GET /buyer/5
+        // GET /game/5
         [HttpGet("{id}")]
         public Game Get(int id)
         {
             return gl.Read(id);
         }
 
-        // POST /car
+        // POST /game
         [HttpPost]
         public void Post([FromBody] Game value)
         {
             gl.Create(value);
         }
 
-        // PUT /car
+        // PUT /game
         [HttpPut]
         public void Put([FromBody] Game value)
         {
             gl.Update(value);
         }
 
-        // DELETE car/5
+        // DELETE game/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

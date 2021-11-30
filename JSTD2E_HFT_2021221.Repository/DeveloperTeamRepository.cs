@@ -23,9 +23,9 @@ namespace JSTD2E_HFT_2021221.Repository
             mdb.SaveChanges();
         }
 
-        public void Delete(string devteam)
+        public void Delete(int id)
         {
-            var devteamToDelete = Read(devteam);
+            var devteamToDelete = Read(id);
             mdb.DeveloperTeam.Remove(devteamToDelete);
             mdb.SaveChanges();
         }
@@ -35,14 +35,14 @@ namespace JSTD2E_HFT_2021221.Repository
             return mdb.DeveloperTeam;
         }
 
-        public DeveloperTeam Read(string devteam)
+        public DeveloperTeam Read(int id)
         {
-            return mdb.DeveloperTeam.FirstOrDefault(x => x.DevTeam == devteam);
+            return mdb.DeveloperTeam.FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(DeveloperTeam devteam)
         {
-            var devteamToUpdate = Read(devteam.DevTeam);
+            var devteamToUpdate = Read(devteam.Id);
             devteamToUpdate.DevTeam = devteam.DevTeam;
             mdb.SaveChanges();
         }

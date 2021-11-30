@@ -25,9 +25,9 @@ namespace JSTD2E_HFT_2021221.Logic
             devRepo.Create(devteam);
         }
 
-        public void Delete(string devteam)
+        public void Delete(int id)
         {
-            devRepo.Delete(devteam);
+            devRepo.Delete(id);
         }
 
         public IEnumerable<DeveloperTeam> GetAll()
@@ -35,9 +35,9 @@ namespace JSTD2E_HFT_2021221.Logic
             return devRepo.GetAll();
         }
 
-        public DeveloperTeam Read(string devteam)
+        public DeveloperTeam Read(int id)
         {
-            return devRepo.Read(devteam);
+            return devRepo.Read(id);
         }
 
         public void Update(DeveloperTeam devteam)

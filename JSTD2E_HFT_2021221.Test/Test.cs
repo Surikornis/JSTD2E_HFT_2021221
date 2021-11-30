@@ -96,7 +96,8 @@ namespace JSTD2E_HFT_2021221.Test
 
             var expected = new List<KeyValuePair<string, double>>()
             {
-                new KeyValuePair<string, double>("Sanyi", 2000)
+                new KeyValuePair<string, double>("CoD", 2000),
+                new KeyValuePair<string, double>("LoL", 2000)
             };
 
             //ASSERT
