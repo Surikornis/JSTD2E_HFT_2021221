@@ -44,6 +44,8 @@ namespace JSTD2E_HFT_2021221.Repository
         {
             var devteamToUpdate = Read(devteam.Id);
             devteamToUpdate.DevTeam = devteam.DevTeam;
+            devteamToUpdate.DateofFoundation = devteam.DateofFoundation;
+            devteamToUpdate.HQ = devteam.HQ;
             mdb.SaveChanges();
         }
     }

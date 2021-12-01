@@ -26,7 +26,7 @@ namespace JSTD2E_HFT_2021221.Client
                     Console.Clear();
                     Console.WriteLine("What would you like to work with?\nBuyer - B || DevTeam - D || Game - G");
                     workwith = Console.ReadLine().Trim().ToLower();
-                    Console.WriteLine("Choose one action:\nC\t-\tCreate\nR\t-\tRead\nU\t-\tUpdate\nD\t-\tDelete\n");
+                    Console.WriteLine("Choose an action:\nC\t-\tCreate\nR\t-\tRead\nU\t-\tUpdate\nD\t-\tDelete\n");
                     choice = Console.ReadLine().Trim().ToLower();
 
                     if (choice == "c")
@@ -40,7 +40,7 @@ namespace JSTD2E_HFT_2021221.Client
                             {
                                 Console.WriteLine("Buyer's name?");
                                 string name = Console.ReadLine();
-                                Console.WriteLine("Date of birth?");
+                                Console.WriteLine("Age?");
                                 int age = int.Parse(Console.ReadLine());
                                 Console.WriteLine("Date of purchase?");
                                 int dop = int.Parse(Console.ReadLine());
@@ -127,7 +127,6 @@ namespace JSTD2E_HFT_2021221.Client
 
                             Console.WriteLine("Which game do would you like to update?(ID)");
                             int id = int.Parse(Console.ReadLine());
-
                             Console.WriteLine("Updated buyer's name?");
                             string name = Console.ReadLine();
                             Console.WriteLine("Updated buyer's age?");
@@ -135,10 +134,17 @@ namespace JSTD2E_HFT_2021221.Client
                             Console.WriteLine("Updated date of purchase?");
                             int dop = int.Parse(Console.ReadLine());
 
-                            buyers[id].Name = name;
-                            buyers[id].Age = age;
-                            buyers[id].DateofPurchase = dop;
+                            Buyer updated = new Buyer()
+                            {
+                                Id = id,
+                                Name = name,
+                                Age = age,
+                                DateofPurchase = dop
+                            };
+
+                            rest.Put(updated, "/buyer");
                         }
+
                         else if (workwith == "d")
                         {
                             var devteams = rest.Get<DeveloperTeam>("developerteam");
@@ -152,10 +158,17 @@ namespace JSTD2E_HFT_2021221.Client
                             Console.WriteLine("Updated HQ?");
                             string hq = Console.ReadLine();
 
-                            devteams[id].DevTeam = name;
-                            devteams[id].DateofFoundation = dof;
-                            devteams[id].HQ = hq;
+                            DeveloperTeam updated = new DeveloperTeam()
+                            {
+                                Id = id,
+                                DevTeam = name,
+                                DateofFoundation = dof,
+                                HQ = hq
+                            };
+
+                            rest.Put(updated, "/developerteam");
                         }
+
                         else if (workwith == "g")
                         {
                             var games = rest.Get<Game>("game");
@@ -170,9 +183,15 @@ namespace JSTD2E_HFT_2021221.Client
                             Console.WriteLine("Updated price?");
                             int price = int.Parse(Console.ReadLine());
 
-                            games[id].GameName = name;
-                            games[id].Type = type;
-                            games[id].Price = price;
+                            Game updated = new Game()
+                            {
+                                Id = id,
+                                GameName = name,
+                                Type = type,
+                                Price = price
+                            };
+
+                            rest.Put(updated, "/game");
                         }
                     }
 

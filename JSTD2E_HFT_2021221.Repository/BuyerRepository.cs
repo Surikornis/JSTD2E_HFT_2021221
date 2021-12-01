@@ -43,6 +43,8 @@ namespace JSTD2E_HFT_2021221.Repository
         {
             var buyerToUpdate = Read(buyer.Id);
             buyerToUpdate.Name = buyer.Name;
+            buyerToUpdate.Age = buyer.Age;
+            buyerToUpdate.DateofPurchase = buyer.DateofPurchase;
             mdb.SaveChanges();
         }
     }

@@ -44,6 +44,8 @@ namespace JSTD2E_HFT_2021221.Repository
         {
             var gameToUpdate = Read(game.Id);
             gameToUpdate.GameName = game.GameName;
+            gameToUpdate.Type = game.Type;
+            gameToUpdate.Price = game.Price;
             mdb.SaveChanges();
         }
     }
