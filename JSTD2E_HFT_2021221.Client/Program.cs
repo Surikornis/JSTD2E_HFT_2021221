@@ -8,6 +8,7 @@ namespace JSTD2E_HFT_2021221.Client
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("The program will ask for a single key and an enter each time to navigate with");
             RestService rest = new RestService("http://localhost:62282");
             Menu(rest);
         }
@@ -76,12 +77,18 @@ namespace JSTD2E_HFT_2021221.Client
                                 string type = Console.ReadLine();
                                 Console.WriteLine("Price?");
                                 int price = int.Parse(Console.ReadLine());
+                                Console.WriteLine("DevTeam's Id?");
+                                int devid = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Buyer's Id??");
+                                int buyerid = int.Parse(Console.ReadLine());
 
                                 rest.Post<Game>(new Game()
                                 {
                                     GameName = name,
                                     Type = type,
-                                    Price = price
+                                    Price = price,
+                                    DevTeamId = devid,
+                                    BuyerId = buyerid
                                 }, "game");
                             }
                         }
