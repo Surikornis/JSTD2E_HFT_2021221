@@ -28,12 +28,12 @@ namespace JSTD2E_HFT_2021221.Client
 
         public static void Crud(RestService rest)
         {
-            Console.WriteLine("Your selected option: Cruds");
             string choice;
             string workwith;
             do
             {
                 Console.Clear();
+                Console.WriteLine("Your selected option: Cruds\n");
                 Console.WriteLine("What would you like to work with?\nBuyer - B || DevTeam - D || Game - G");
                 workwith = Console.ReadLine().Trim().ToLower();
                 Console.WriteLine("Choose an action:\nC\t-\tCreate\nR\t-\tRead\nU\t-\tUpdate\nD\t-\tDelete\n");
