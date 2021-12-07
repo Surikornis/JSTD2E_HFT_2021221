@@ -107,6 +107,66 @@ namespace JSTD2E_HFT_2021221.Test
         }
 
         [Test]
+        public void Type()
+        {
+            //ACT
+            var result = g1.Type();
+
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Activision", "FPS"),
+                new KeyValuePair<string, string>("Blizzard", "Moba")
+            };
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Name()
+        {
+            var result = g1.Name();
+
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Activision", "CoD"),
+                new KeyValuePair<string, string>("Blizzard", "Starcraft")
+            };
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void Identification()
+        {
+            var result = g1.Identification();
+
+            var expected = new List<KeyValuePair<string, int>>()
+            {
+                new KeyValuePair<string, int>("Activision", 0),
+                new KeyValuePair<string, int>("Blizzard", 0)
+            };
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(expected));
+        }
+        [Test]
+        public void Method()
+        {
+            var result = g1.Price();
+
+            var expected = new List<KeyValuePair<string, double>>()
+            {
+                new KeyValuePair<string, double>("Activision", 2000),
+                new KeyValuePair<string, double>("Blizzard", 1000)
+            };
+
+            //ASSERT
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
         public void AvgPrice()
         {
             //ACT

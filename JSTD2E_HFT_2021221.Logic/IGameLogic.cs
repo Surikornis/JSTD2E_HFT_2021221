@@ -17,5 +17,9 @@ namespace JSTD2E_HFT_2021221.Logic
         public IEnumerable<KeyValuePair<string, double>> Expensive();
         public List<string> List();
         public double AveragePrice();
+        public IEnumerable<KeyValuePair<string, string>> Type();
+        public IEnumerable<KeyValuePair<string, string>> Name();
+        public IEnumerable<KeyValuePair<string, int>> Identification();
+        public IEnumerable<KeyValuePair<string, double>> Price();
     }
 }

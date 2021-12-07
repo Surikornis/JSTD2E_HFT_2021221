@@ -56,5 +56,29 @@ namespace ModelsDb.Endpoint.Controllers
         {
             return gl.AveragePrice();
         }
+
+        // GET: stat/type
+        public IEnumerable<KeyValuePair<string, string>> Type()
+        {
+            return gl.Type();
+        }
+
+        // GET: stat/name
+        public IEnumerable<KeyValuePair<string, string>> Name()
+        {
+            return gl.Name();
+        }
+
+        // GET: stat/identification
+        public IEnumerable<KeyValuePair<string, int>> Identification()
+        {
+            return gl.Identification();
+        }
+
+        // GET: stat/price
+        public IEnumerable<KeyValuePair<string, double>> Price()
+        {
+            return gl.Price();
+        }
     }
 }

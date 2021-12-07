@@ -54,6 +54,42 @@ namespace JSTD2E_HFT_2021221.Logic
                    (g.Key, g.Max(t => t.Price));
         }
 
+        // gives back type of a game the specified company published
+        public IEnumerable<KeyValuePair<string, string>> Type()
+        {
+            return from x in gameRepo.GetAll()
+                   group x by x.DevTeam.DevTeam into g
+                   select new KeyValuePair<string, string>
+                   (g.Key, g.Min(t => t.Type));
+        }
+
+        // gives back the game of every company with the longest name
+        public IEnumerable<KeyValuePair<string, string>> Name()
+        {
+            return from x in gameRepo.GetAll()
+                   group x by x.DevTeam.DevTeam into g
+                   select new KeyValuePair<string, string>
+                   (g.Key, g.Max(t => t.GameName));
+        }
+
+        // gives back the identification number of each developer team
+        public IEnumerable<KeyValuePair<string, int>> Identification()
+        {
+            return from x in gameRepo.GetAll()
+                   group x by x.DevTeam.DevTeam into g
+                   select new KeyValuePair<string, int>
+                   (g.Key, g.Max(t => t.DevTeamId));
+        }
+
+        // gives back the average price of games made by devteams
+        public IEnumerable<KeyValuePair<string, double>> Price()
+        {
+            return from x in gameRepo.GetAll()
+                   group x by x.DevTeam.DevTeam into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(t => t.Price));
+        }
+
         public List<string> List()
         {
             return gameRepo.GetAll().Where(t => t.Price > 1500).Select(t => t.GameName).ToList();
