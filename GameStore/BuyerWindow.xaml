@@ -1,0 +1,42 @@
+﻿<Window x:Class="JSTD2E_HFT_2021221.WPFClient.BuyerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JSTD2E_HFT_2021221.WPFClient"
+        mc:Ignorable="d"
+        Title="BuyerWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:BuyerWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Buyers}" SelectedItem="{Binding SelectedBuyer}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Id" Background="LightBlue" Padding="5"/>
+            <TextBox Text="{Binding SelectedBuyer.Id}" Padding="5"/>
+            <Label Content="Name" Background="LightBlue" Padding="5"/>
+            <TextBox Text="{Binding SelectedBuyer.Name}" Padding="5"/>
+            <Label Content="Age" Background="LightBlue" Padding="5"/>
+            <TextBox Text="{Binding SelectedBuyer.Age}" Padding="5"/>
+            <Label Content="Date of Purchase" Background="LightBlue" Padding="5"/>
+            <TextBox Text="{Binding SelectedBuyer.DateofPurchase}" Padding="5" Margin="0,0,0,30"/>
+            
+            <Button Content="Create Buyer" Command="{Binding CreateBuyerCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Buyer" Command="{Binding UpdateBuyerCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Buyer" Command="{Binding DeleteBuyerCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
+        <Grid Grid.Column="0">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Vissza a táblaválasztóhoz" Click="Button_Click" Padding="5" Margin="5" />
+        </Grid>
+    </Grid>
+</Window>
