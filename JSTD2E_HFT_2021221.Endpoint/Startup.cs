@@ -39,6 +39,12 @@ namespace ModelsDb.Endpoint
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:14134"));
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -30,10 +30,11 @@
             <TextBox Text="{Binding SelectedGame.Price}" Padding="5"/>
             <Label Content="Type" Background="LightBlue" Padding="5"/>
             <TextBox Text="{Binding SelectedGame.Type}" Padding="5"/>
+            
             <Label Content="BuyerId" Background="LightBlue" Padding="5"/>
-            <Label Content="{Binding SelectedGame.BuyerId}" Padding="5"/>
+            <TextBox Text="{Binding SelectedGame.BuyerId}" Padding="5"/>
             <Label Content="DevTeamId" Background="LightBlue" Padding="5"/>
-            <Label Content="{Binding SelectedGame.DevTeamId}" Padding="5" Margin="0,0,0,30"/>
+            <TextBox Text="{Binding SelectedGame.DevTeamId}" Padding="5"  Margin="0,0,0,30"/>
 
             <Button Content="Create Game" Command="{Binding CreateGameCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Game" Command="{Binding UpdateGameCommand}" Margin="10" Padding="10"/>

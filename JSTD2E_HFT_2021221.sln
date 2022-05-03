@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf Clients", "Wpf Clients"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSTD2E_HFT_2021221.WPFClient", "GameStore\JSTD2E_HFT_2021221.WPFClient.csproj", "{1104D5FD-B274-4ECD-BA49-A9D564D0AABB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSTD2E_HFT_2021221.JSClient", "JSTD2E_HFT_2021221.JSClient\JSTD2E_HFT_2021221.JSClient.csproj", "{DB673D63-79E0-4A2A-ABA5-4F03BDF0AB74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{1104D5FD-B274-4ECD-BA49-A9D564D0AABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1104D5FD-B274-4ECD-BA49-A9D564D0AABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1104D5FD-B274-4ECD-BA49-A9D564D0AABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB673D63-79E0-4A2A-ABA5-4F03BDF0AB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB673D63-79E0-4A2A-ABA5-4F03BDF0AB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB673D63-79E0-4A2A-ABA5-4F03BDF0AB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB673D63-79E0-4A2A-ABA5-4F03BDF0AB74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
